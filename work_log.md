@@ -219,7 +219,8 @@ Resolution: `sudo apt install ros-melodic-joint-trajectory-controller`
   respawn="false" output="screen"
 />
 ```
-23. Does the `joint_state_publisher` in config yaml files duplicate the `joint_state_publisher` in launch file?
+23. Does the `joint_state_controller` in config yaml files duplicate the `joint_state_publisher` in launch file?
     1.  ANSWER: **No!**
-    2.  the `joint_state_publisher` in yamle file is not enough
-    3.  Please make sure that the `joint_state_publisher` in the launch file is always
+    2.  the `joint_state_controller` in yaml file is for simulation control and real robot control enough
+    3.  But the `joint_state_publisher` in the launch file is a node for publish fake `joint_states` values
+    4.  So in simulation, it is better to only retain `joint_state_controller`
