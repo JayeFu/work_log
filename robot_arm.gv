@@ -1,0 +1,65 @@
+digraph G {
+node [shape=box];
+"/mbx/base_link" [label="/mbx/base_link"];
+"/mbx/base" [label="/mbx/base"];
+"/mbx/car_link" [label="/mbx/car_link"];
+"/mbx/end_left_wheel" [label="/mbx/end_left_wheel"];
+"/mbx/end_left_wheel2" [label="/mbx/end_left_wheel2"];
+"/mbx/end_right_wheel" [label="/mbx/end_right_wheel"];
+"/mbx/end_right_wheel2" [label="/mbx/end_right_wheel2"];
+"/mbx/front_left_wheel" [label="/mbx/front_left_wheel"];
+"/mbx/front_left_wheel2" [label="/mbx/front_left_wheel2"];
+"/mbx/front_right_wheel" [label="/mbx/front_right_wheel"];
+"/mbx/front_right_wheel2" [label="/mbx/front_right_wheel2"];
+"/mbx/shoulder_link" [label="/mbx/shoulder_link"];
+"/mbx/upper_arm_link" [label="/mbx/upper_arm_link"];
+"/mbx/forearm_link" [label="/mbx/forearm_link"];
+"/mbx/wrist_1_link" [label="/mbx/wrist_1_link"];
+"/mbx/wrist_2_link" [label="/mbx/wrist_2_link"];
+"/mbx/wrist_3_link" [label="/mbx/wrist_3_link"];
+"/mbx/connect" [label="/mbx/connect"];
+"/mbx/wx" [label="/mbx/wx"];
+"/mbx/ee_link" [label="/mbx/ee_link"];
+"/mbx/tool0" [label="/mbx/tool0"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"/mbx/base_link" -> "/mbx/base_link-base_fixed_joint" [label="xyz: 0 0 0 \nrpy: 0 0 3.14159"]
+"/mbx/base_link-base_fixed_joint" -> "/mbx/base"
+"/mbx/base" -> "/mbx/car2base_link" [label="xyz: -0.03 0 0.055 \nrpy: 0 -0 0"]
+"/mbx/car2base_link" -> "/mbx/car_link"
+"/mbx/car_link" -> "/mbx/end_left_wheel" [label="xyz: -0.282 -0.275 -0.087 \nrpy: 0 -0 0"]
+"/mbx/end_left_wheel" -> "/mbx/end_left_wheel"
+"/mbx/car_link" -> "/mbx/end_left_wheel2" [label="xyz: -0.083 -0.275 -0.087 \nrpy: 0 -0 0"]
+"/mbx/end_left_wheel2" -> "/mbx/end_left_wheel2"
+"/mbx/car_link" -> "/mbx/end_right_wheel" [label="xyz: -0.282 0.275 -0.087 \nrpy: 0 -0 0"]
+"/mbx/end_right_wheel" -> "/mbx/end_right_wheel"
+"/mbx/car_link" -> "/mbx/end_right_wheel2" [label="xyz: -0.083 0.275 -0.087 \nrpy: 0 -0 0"]
+"/mbx/end_right_wheel2" -> "/mbx/end_right_wheel2"
+"/mbx/car_link" -> "/mbx/front_left_wheel" [label="xyz: 0.282 -0.275 -0.087 \nrpy: 0 -0 0"]
+"/mbx/front_left_wheel" -> "/mbx/front_left_wheel"
+"/mbx/car_link" -> "/mbx/front_left_wheel2" [label="xyz: 0.083 -0.275 -0.087 \nrpy: 0 -0 0"]
+"/mbx/front_left_wheel2" -> "/mbx/front_left_wheel2"
+"/mbx/car_link" -> "/mbx/front_right_wheel" [label="xyz: 0.282 0.275 -0.087 \nrpy: 0 -0 0"]
+"/mbx/front_right_wheel" -> "/mbx/front_right_wheel"
+"/mbx/car_link" -> "/mbx/front_right_wheel2" [label="xyz: 0.083 0.275 -0.087 \nrpy: 0 -0 0"]
+"/mbx/front_right_wheel2" -> "/mbx/front_right_wheel2"
+"/mbx/base_link" -> "/mbx/shoulder_pan_joint" [label="xyz: 0 0 0.1273 \nrpy: 0 -0 0"]
+"/mbx/shoulder_pan_joint" -> "/mbx/shoulder_link"
+"/mbx/shoulder_link" -> "/mbx/shoulder_lift_joint" [label="xyz: 0 0.220941 0 \nrpy: 0 1.5708 -0"]
+"/mbx/shoulder_lift_joint" -> "/mbx/upper_arm_link"
+"/mbx/upper_arm_link" -> "/mbx/elbow_joint" [label="xyz: 0 -0.1719 0.612 \nrpy: 0 -0 0"]
+"/mbx/elbow_joint" -> "/mbx/forearm_link"
+"/mbx/forearm_link" -> "/mbx/wrist_1_joint" [label="xyz: 0 0 0.5723 \nrpy: 0 1.5708 -0"]
+"/mbx/wrist_1_joint" -> "/mbx/wrist_1_link"
+"/mbx/wrist_1_link" -> "/mbx/wrist_2_joint" [label="xyz: 0 0.1149 0 \nrpy: 0 -0 0"]
+"/mbx/wrist_2_joint" -> "/mbx/wrist_2_link"
+"/mbx/wrist_2_link" -> "/mbx/wrist_3_joint" [label="xyz: 0 0 0.1157 \nrpy: 0 -0 0"]
+"/mbx/wrist_3_joint" -> "/mbx/wrist_3_link"
+"/mbx/wrist_3_link" -> "/mbx/connect_fixed_joint" [label="xyz: 0 0.0922 0 \nrpy: 0 -0 1.57"]
+"/mbx/connect_fixed_joint" -> "/mbx/connect"
+"/mbx/connect" -> "/mbx/connect2wx" [label="xyz: 0 0 0.7 \nrpy: 0 -0 0"]
+"/mbx/connect2wx" -> "/mbx/wx"
+"/mbx/wrist_3_link" -> "/mbx/ee_fixed_joint" [label="xyz: 0 0.0922 0 \nrpy: 0 -0 1.5708"]
+"/mbx/ee_fixed_joint" -> "/mbx/ee_link"
+"/mbx/wrist_3_link" -> "/mbx/wrist_3_link-tool0_fixed_joint" [label="xyz: 0 0.0922 0 \nrpy: -1.5708 0 0"]
+"/mbx/wrist_3_link-tool0_fixed_joint" -> "/mbx/tool0"
+}

@@ -1,0 +1,47 @@
+digraph G {
+node [shape=box];
+"agv_link" [label="agv_link"];
+"base_link" [label="base_link"];
+"base" [label="base"];
+"link_1" [label="link_1"];
+"link_2" [label="link_2"];
+"link_3" [label="link_3"];
+"link_4" [label="link_4"];
+"link_5" [label="link_5"];
+"link_6" [label="link_6"];
+"link_7" [label="link_7"];
+"tool0" [label="tool0"];
+"pan_link" [label="pan_link"];
+"xiangji_link" [label="xiangji_link"];
+"xiao_arm1_link" [label="xiao_arm1_link"];
+"xiao_arm2_link" [label="xiao_arm2_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"agv_link" -> "agv_iiwa_joint" [label="xyz: 0 0 0.23 \nrpy: 0 -0 0"]
+"agv_iiwa_joint" -> "base_link"
+"base_link" -> "base_link-base" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_link-base" -> "base"
+"base_link" -> "joint_a1" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"joint_a1" -> "link_1"
+"link_1" -> "joint_a2" [label="xyz: -0.00043624 0 0.36 \nrpy: 0 -0 0"]
+"joint_a2" -> "link_2"
+"link_2" -> "joint_a3" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"joint_a3" -> "link_3"
+"link_3" -> "joint_a4" [label="xyz: 0.00043624 0 0.42 \nrpy: 0 -0 0"]
+"joint_a4" -> "link_4"
+"link_4" -> "joint_a5" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"joint_a5" -> "link_5"
+"link_5" -> "joint_a6" [label="xyz: 0 0 0.4 \nrpy: 0 -0 0"]
+"joint_a6" -> "link_6"
+"link_6" -> "joint_a7" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"joint_a7" -> "link_7"
+"link_7" -> "joint_a7-tool0" [label="xyz: 0 0 0.126 \nrpy: 0 -0 0"]
+"joint_a7-tool0" -> "tool0"
+"link_7" -> "pan_joint" [label="xyz: 0 0 0.12 \nrpy: 1.5708 -0 0"]
+"pan_joint" -> "pan_link"
+"pan_link" -> "xiangji_joint" [label="xyz: 0 0.065 -0.1 \nrpy: -1.5708 0 0"]
+"xiangji_joint" -> "xiangji_link"
+"pan_link" -> "xiao_arm1_joint" [label="xyz: 0 0 -0.47 \nrpy: 0 -0 0"]
+"xiao_arm1_joint" -> "xiao_arm1_link"
+"pan_link" -> "xiao_arm2_joint" [label="xyz: -0.15 0 -0.47 \nrpy: 0 -0 0"]
+"xiao_arm2_joint" -> "xiao_arm2_link"
+}
