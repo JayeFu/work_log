@@ -224,3 +224,11 @@ Resolution: `sudo apt install ros-melodic-joint-trajectory-controller`
     2.  the `joint_state_controller` in yaml file is for simulation control and real robot control enough
     3.  But the `joint_state_publisher` in the launch file is a node for publish fake `joint_states` values
     4.  So in simulation, it is better to only retain `joint_state_controller`
+
+24. A problem to be solved
+    1.  I use `JointTrajectoryController` to control iiwa arm in Gazebo, but its movement is not synchronized in Rviz.
+    2.  After checking the topic of `/mbx/arm_controller/state`, I find that the actual value is 0 while the desired value is right. Although in Gazebo, the arm is moved to the correct position.
+    3.  Also, I tested the usage of `JointTrajectoryController` with rrbot in Gazebo. But its movement is synced in Rviz.
+    4.  DO NOT KNOW WHY!
+    5.  NOW the problem is caused by that I included two `gazebo_ros_control` plugin.
+    6.  So TRY to make sure that there is only ONE `gazebo_ros_control` plugin in the xacro file.
