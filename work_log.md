@@ -232,3 +232,8 @@ Resolution: `sudo apt install ros-melodic-joint-trajectory-controller`
     4.  DO NOT KNOW WHY!
     5.  NOW the problem is caused by that I included two `gazebo_ros_control` plugin.
     6.  So TRY to make sure that there is only ONE `gazebo_ros_control` plugin in the xacro file.
+
+25. How to launch multiple robot in one `launch` file?
+    1.  [this website](https://answers.gazebosim.org//question/16497/spawning-multiple-robots-each-with-a-controller-in-the-same-namespace-as-the-controller_manager/) shows how to spawn multiple robots in one launch file
+    2.  NOTE: to successfully spawn the controllers please add `ns` in yaml loader as stated in the above website
+    3.  In addition, remember to change the `robotParam` tag in `urdf.xacro` file! As show in [this website](https://blog.csdn.net/xu1129005165/article/details/53748636)
