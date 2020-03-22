@@ -239,3 +239,11 @@ Resolution: `sudo apt install ros-melodic-joint-trajectory-controller`
     3.  In addition, remember to change the `robotParam` tag in `urdf.xacro` file! As show in [this website](https://blog.csdn.net/xu1129005165/article/details/53748636)
 
 26. There is a tag called `legacyMode` in iiwa's urdf file. So after commenting this tag, the controller in the namespace of `/iiwa` then can be found in Gazebo.
+
+27. In iiwa's controller, when I use the python file to control the arm, I find this error `Joints on incoming goal don't match the controller joints`
+    1. Previously, I set `robotNamespace` to `/iiwa`, but the joints in the xacro file was set to sth like `joint_a1` without prefix.
+    2. This time, I added the prefix. That is to say `joint_a1` is set to `/iiwa/joint_a1` and others likewise.
+    3. Then, also in the script, all the joints have the prefix `/iiwa`.
+    4. The iiwa arm can be controlled this time.
+
+27. CUATION: `rqt_joint_trajectory_controller` can only use `robot_description` as the parameter. This setting cannot be changed. So to control the `joint_trajectory_controller` in grouped nodes, it is needed to create python scripts to do this.
