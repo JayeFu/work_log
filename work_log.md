@@ -237,3 +237,5 @@ Resolution: `sudo apt install ros-melodic-joint-trajectory-controller`
     1.  [this website](https://answers.gazebosim.org//question/16497/spawning-multiple-robots-each-with-a-controller-in-the-same-namespace-as-the-controller_manager/) shows how to spawn multiple robots in one launch file
     2.  NOTE: to successfully spawn the controllers please add `ns` in yaml loader as stated in the above website
     3.  In addition, remember to change the `robotParam` tag in `urdf.xacro` file! As show in [this website](https://blog.csdn.net/xu1129005165/article/details/53748636)
+
+26. There is a tag called `legacyMode` in iiwa's urdf file. So after commenting this tag, the controller in the namespace of `/iiwa` then can be found in Gazebo.
